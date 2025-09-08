@@ -162,7 +162,7 @@ def run_inference_single_rank(model, tokenizer, sequences: List[str], labels: Li
         batch_size=config.get('batch_size', 32),
         shuffle=False,
         num_workers=config.get('num_workers', 0),
-        collate_fn=collate_fn_filter_none
+# No custom collate function needed with global encoders
     )
     
     device = torch.device(config.get('device', 'cuda' if torch.cuda.is_available() else 'cpu'))
@@ -173,8 +173,7 @@ def run_inference_single_rank(model, tokenizer, sequences: List[str], labels: Li
     
     with torch.no_grad():
         for batch in loader:
-            if batch is None:  # Filtered by collate_fn
-                continue
+# No None batch checking needed with global encoders
                 
             # Move to device
             input_ids = batch['input_ids'].to(device)
@@ -249,7 +248,7 @@ def run_inference_hierarchical(model, tokenizer, sequences: List[str], val_df: p
         batch_size=config.get('batch_size', 32),
         shuffle=False,
         num_workers=config.get('num_workers', 0),
-        collate_fn=collate_fn_filter_none
+# No custom collate function needed with global encoders
     )
     
     device = torch.device(config.get('device', 'cuda' if torch.cuda.is_available() else 'cpu'))

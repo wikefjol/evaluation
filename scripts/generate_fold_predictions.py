@@ -94,8 +94,8 @@ def generate_predictions(config: dict, fold: int, model_type: str, use_best: boo
     is_hierarchical = model_type == 'hierarchical'
     
     if is_hierarchical:
-        # Load label encoders from separate file  
-        encoder_path = config['label_encoders_path'].replace('{base_path}', config['base_path']).format(fold=fold)
+        # Load global label encoders (no fold-specific path)
+        encoder_path = config['label_encoders_path'].replace('{base_path}', config['base_path'])
         with open(encoder_path, 'r') as f:
             encoder_dicts = json.load(f)
         
@@ -115,8 +115,8 @@ def generate_predictions(config: dict, fold: int, model_type: str, use_best: boo
         # Single-rank model
         target_level = model_type.split('_')[1]  # Extract 'species' from 'single_species'
         
-        # Load label encoder for this level
-        encoder_path = config['label_encoders_path'].replace('{base_path}', config['base_path']).format(fold=fold)
+        # Load global label encoders (no fold-specific path)
+        encoder_path = config['label_encoders_path'].replace('{base_path}', config['base_path'])
         with open(encoder_path, 'r') as f:
             encoder_dicts = json.load(f)
         
