@@ -2,7 +2,7 @@ dataset_name: "full_10fold"
 base_path: "/mimer/NOBACKUP/groups/snic2022-22-552/filbern/fungal_classification/experiments/exp1_sequence_fold/full_10fold"
 models_path: "{base_path}/models/standard"
 data_path: "{base_path}/data/standard.csv"
-label_encoders_path: "{base_path}/data/label_encoders_standard_fold{fold}.json"
+label_encoders_path: "{base_path}/data/label_encoders_global.json"
 output_path: "/mimer/NOBACKUP/groups/snic2022-22-552/filbern/fungal_classification/predictions/full_dataset"
 num_folds: 10
 model_types:
