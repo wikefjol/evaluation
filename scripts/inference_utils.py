@@ -70,6 +70,12 @@ def load_trained_model(checkpoint_path: str, config: Dict, use_best: bool = True
     
     logger.info(f"Loading checkpoint: {checkpoint_path}")
     
+    # Add workspace to sys.path temporarily for checkpoint loading (handles 'src' module references)
+    import sys
+    workspace_path = str(Path(__file__).parent.parent.parent / "training")
+    if workspace_path not in sys.path:
+        sys.path.insert(0, workspace_path)
+    
     # Load checkpoint
     checkpoint = torch.load(checkpoint_path, map_location='cpu')
     
