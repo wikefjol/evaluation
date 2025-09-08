@@ -16,7 +16,7 @@ import logging
 # Add training src to path for imports
 sys.path.append(str(Path(__file__).parent.parent.parent / "training" / "src"))
 
-from data import LabelEncoder, load_fold_data, collate_fn_filter_none
+from data import LabelEncoder, load_fold_data
 from preprocessing import create_tokenizer
 from model import create_model
 
