@@ -13,9 +13,7 @@ from typing import Dict, List, Tuple, Optional, Union
 from torch.utils.data import DataLoader
 import logging
 
-# Add training src to path for imports
-sys.path.append(str(Path(__file__).parent.parent.parent / "training" / "src"))
-
+# Import from training package (installed as dependency)
 from data import LabelEncoder, load_fold_data
 from preprocessing import create_tokenizer
 from model import create_model

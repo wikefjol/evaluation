@@ -14,12 +14,7 @@ from datetime import datetime
 import logging
 import os
 
-# Add training src to path for both direct imports and checkpoint loading
-training_src_path = str(Path(__file__).parent.parent.parent / "training" / "src")
-sys.path.append(training_src_path)
-# Also add as 'src' for checkpoint compatibility
-sys.path.append(str(Path(__file__).parent.parent.parent / "training"))
-
+# Import from training package (installed as dependency)
 from data import load_fold_data, LabelEncoder
 from inference_utils import load_trained_model, run_inference_single_rank, run_inference_hierarchical
 
