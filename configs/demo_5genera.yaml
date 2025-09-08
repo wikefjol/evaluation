@@ -2,7 +2,7 @@ dataset_name: "debug_5genera_10fold"
 base_path: "/mimer/NOBACKUP/groups/snic2022-22-552/filbern/fungal_classification/experiments/exp1_sequence_fold/debug_5genera_10fold"
 models_path: "{base_path}/models/standard"
 data_path: "{base_path}/data/standard.csv"
-label_encoders_path: "{base_path}/data/label_encoders_global.json"
+label_encoders_path: "{base_path}/data/label_encoders_standard_global.json"
 output_path: "/mimer/NOBACKUP/groups/snic2022-22-552/filbern/fungal_classification/predictions/demo_5genera"
 num_folds: 10
 model_types:
@@ -18,9 +18,9 @@ model_types:
 fold_type: "exp1_sequence_fold"
 preprocessing:
   tokenizer: "kmer"
-  kmer_size: 3
+  kmer_size: 6
   stride: 1
-  max_length: 128
+  max_length: 512
   padding: "max_length"
   truncation: true
 
