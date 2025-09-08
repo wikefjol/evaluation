@@ -1,0 +1,30 @@
+# Evaluation Configuration
+
+evaluation:
+  batch_size: 32
+  device: "cuda"
+  
+  # Metrics to calculate
+  metrics:
+    - accuracy
+    - per_class_accuracy
+    - confusion_matrix
+    
+  # Visualization settings
+  visualization:
+    create_plots: true
+    confusion_matrix_format: "png"
+    dpi: 150
+    
+  # Comparison settings
+  comparison:
+    compare_hierarchical_vs_single: true
+    analyze_error_propagation: true
+    check_hierarchical_consistency: true
+    
+# Output settings
+output:
+  save_predictions: true
+  save_metrics: true
+  save_visualizations: true
+  verbose: true

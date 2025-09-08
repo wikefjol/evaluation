@@ -1,0 +1,30 @@
+dataset_name: "debug_5genera_10fold"
+base_path: "/mimer/NOBACKUP/groups/snic2022-22-552/filbern/fungal_classification/experiments/exp1_sequence_fold/debug_5genera_10fold"
+models_path: "{base_path}/models/standard"
+data_path: "{base_path}/data/standard.csv"
+label_encoders_path: "{base_path}/data/label_encoders_standard_fold{fold}.json"
+output_path: "/mimer/NOBACKUP/groups/snic2022-22-552/filbern/fungal_classification/predictions/demo_5genera"
+num_folds: 10
+model_types:
+  - single_species
+  - single_genus  
+  - single_family
+  - single_class
+  - single_order
+  - single_phylum
+  - hierarchical
+
+# Training pipeline settings (to match training exactly)
+fold_type: "exp1_sequence_fold"
+preprocessing:
+  tokenizer: "kmer"
+  kmer_size: 3
+  stride: 1
+  max_length: 128
+  padding: "max_length"
+  truncation: true
+
+# Inference settings
+batch_size: 32
+num_workers: 0
+device: "cuda"
